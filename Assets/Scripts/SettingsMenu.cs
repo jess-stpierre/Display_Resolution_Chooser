@@ -5,7 +5,7 @@ using UnityEngine;
 public class SettingsMenu : MonoBehaviour
 {
     [SerializeField] private GameObject settingsMenuOBJ;
-    [SerializeField] private GameObject displayMenuOBJ;
+    public GameObject displayMenuOBJ;
 
     private void Start()
     {
