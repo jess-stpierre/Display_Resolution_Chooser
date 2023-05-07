@@ -11,6 +11,10 @@ public class Toolbox : MonoBehaviour
 
     public GameObject canvas;
 
+    private SettingsManager settingsManager;
+
+    private DisplayManager displayManager;
+
     /// <summary>
     /// Singleton things
     /// </summary>
@@ -34,5 +38,25 @@ public class Toolbox : MonoBehaviour
         {
             canvas = GameObject.FindGameObjectWithTag("Canvas"); //Make sure your new create object has the canvas tag!
         }
+
+        //Spawn a settings manager gameObject with the script SettingsManager.cs attached to it!
+        var go1 = new GameObject("SettingsManager");
+        go1.transform.parent = this.gameObject.transform;
+        this.settingsManager = go1.AddComponent<SettingsManager>();
+
+        var go2 = new GameObject("DisplayManager");
+        go2.transform.parent = this.gameObject.transform;
+        this.displayManager = go2.AddComponent<DisplayManager>();
+    }
+
+    //Easy way to access the SettingsManager.cs in other scripts!
+    public SettingsManager GetSettingsManager()
+    {
+        return this.settingsManager;
+    }
+
+    public DisplayManager GetDisplayManager()
+    {
+        return this.displayManager;
     }
 }
